@@ -1,0 +1,13 @@
+# Soft dependencies extracted from modules themselves.
+softdep mt6991_dcm pre:mtk_dcm.ko
+softdep mtk_afe_external post: mediatek-drm
+softdep clkbuf pre: mt6685-core
+softdep clkbuf pre: mt6397
+softdep mtk_vdisp_v2 post:mediatek-drm
+softdep mtk_vmm_notifier_mt6991 pre:mtk-scpsys
+softdep mtk_vmm_notifier_mt6991 pre:mtk-scpsys-mt6991
+softdep mtk_vmm_notifier_mt6991 pre:mtk-scpsys.ko
+softdep mtk_vmm_notifier_mt6991 pre:mtk-scpsys-mt6991.ko
+softdep mtk_dvfsrc post: mtk-dvfsrc-regulator
+softdep mtk_dvfsrc post: mtk-dvfsrc-devfreq
+softdep mtk_dvfsrc post: mtk-emi

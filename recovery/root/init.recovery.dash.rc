@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+# Hardware
+on init
+    # CPU low-power initialization.
+    insmod /lib/modules/sspm_v3.ko
+    insmod /lib/modules/mcupm.ko
+    insmod /lib/modules/mtk-lpm.ko
+    insmod /lib/modules/mtk-lpm-dbg-common-v2.ko
+    insmod /lib/modules/mtk-lpm-plat-v2.ko
