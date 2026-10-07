@@ -10,6 +10,18 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Stock platform ramdisk
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/prebuilt/platform,$(TARGET_COPY_OUT_VENDOR_RAMDISK))
 
+# Virtual A/B
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+AB_OTA_UPDATER := true
+PRODUCT_VIRTUAL_AB_OTA := true
+PRODUCT_VIRTUAL_AB_COMPRESSION := true
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.virtual_ab.enabled=true \
+    ro.virtual_ab.compression.enabled=true \
+    ro.virtual_ab.userspace.snapshots.enabled=true \
+    ro.virtual_ab.batch_writes=true \
+    ro.virtual_ab.io_uring.enabled?=true \
+    ro.virtual_ab.compression.xor.enabled=true
 # Images
 PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
 PRODUCT_BUILD_RECOVERY_IMAGE := true
@@ -26,6 +38,18 @@ PRODUCT_BUILD_ODM_IMAGE := false
 PRODUCT_BUILD_SYSTEM_DLKM_IMAGE := false
 PRODUCT_BUILD_VENDOR_DLKM_IMAGE := false
 PRODUCT_BUILD_ODM_DLKM_IMAGE := false
+
+# Packages
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot-service.example_recovery \
+    android.hardware.health-service.example_recovery \
+    android.hardware.boot-V1-ndk.recovery \
+    android.hardware.boot@1.1.recovery \
+    fastbootd \
+    hwservicemanager.recovery \
+    libdl_android.recovery \
+    snapuserd.recovery \
+    update_engine_sideload
 
 # Device
 PRODUCT_PROPERTY_OVERRIDES += \

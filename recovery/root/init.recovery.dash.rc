@@ -7,3 +7,5 @@ on init
     insmod /lib/modules/mtk-lpm.ko
     insmod /lib/modules/mtk-lpm-dbg-common-v2.ko
     insmod /lib/modules/mtk-lpm-plat-v2.ko
+on boot
+    start mtk.plpath.utils.link
