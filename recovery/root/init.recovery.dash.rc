@@ -8,5 +8,12 @@ on init
     insmod /lib/modules/mtk-lpm.ko
     insmod /lib/modules/mtk-lpm-dbg-common-v2.ko
     insmod /lib/modules/mtk-lpm-plat-v2.ko
+    # Touch
+    write /sys/module/firmware_class/parameters/path /odm/firmware
+    insmod /lib/modules/xiaomi_touch_dash.ko
+    insmod /lib/modules/nt38771_touch_dash.ko
 on boot
     start mtk.plpath.utils.link
+    # Touch
+    wait /dev/xiaomi-touch 10
+    start mt6991-touch-report

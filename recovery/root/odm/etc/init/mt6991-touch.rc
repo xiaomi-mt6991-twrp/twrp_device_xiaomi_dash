@@ -1,0 +1,8 @@
+# Touch
+service mt6991-touch-report /odm/bin/touch_report_debug
+    class core
+    user root
+    group root input
+    seclabel u:r:recovery:s0
+    setenv LD_LIBRARY_PATH /odm/lib64:/vendor/lib64:/system/lib64
+    disabled
