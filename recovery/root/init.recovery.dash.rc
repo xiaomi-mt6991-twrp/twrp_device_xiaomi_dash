@@ -8,12 +8,27 @@ on init
     insmod /lib/modules/mtk-lpm.ko
     insmod /lib/modules/mtk-lpm-dbg-common-v2.ko
     insmod /lib/modules/mtk-lpm-plat-v2.ko
+    # NFC
+    insmod /lib/modules/nxp_i2c.ko
+    insmod /lib/modules/p73.ko
     # Touch
     write /sys/module/firmware_class/parameters/path /odm/firmware
     insmod /lib/modules/xiaomi_touch_dash.ko
     insmod /lib/modules/nt38771_touch_dash.ko
     # Haptics
     insmod /lib/modules/fs3002_haptic.ko
+
+on fs
+    chmod 0660 /dev/nq-nci
+    chown nfc nfc /dev/nq-nci
+
+# Crypto HALs
+on property:vendor.teefs_state=ready
+    start vendor.keymint-mitee
+    start vendor.gatekeeper_mitee
+    start vendor.mitee.mtdservice
+    start miweaver_hal_service
+    start vendor.secure_element_hal_service
 
 on boot
     start mtk.plpath.utils.link

@@ -1,3 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
 # Touch
 /dev/xiaomi-touch 0660 root input
+# TEE
+/dev/tee0 0660 system system
+/dev/teepriv0 0660 system system
+/dev/rpmb0 0660 system system
+/dev/ufs-bsg0 0660 system system
+/dev/0:0:0:49476 0660 system system
+# NFC
+/dev/p73 0660 nfc nfc
+/dev/nq-nci 0660 nfc nfc

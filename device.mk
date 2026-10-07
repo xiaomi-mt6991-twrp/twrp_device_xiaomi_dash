@@ -64,6 +64,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SHIPPING_API_LEVEL := 36
 BOARD_SHIPPING_API_LEVEL := 202404
 
+# Encryption properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gatekeeper=mitee \
+    ro.vendor.mtk_mitee_support=1 \
+    ro.vendor.mtk_tee_gp_support=1 \
+    ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Haptics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.odm.mm.vibrator.fs_sys_path=/sys/bus/i2c/drivers/fs_haptic/1-0076 \

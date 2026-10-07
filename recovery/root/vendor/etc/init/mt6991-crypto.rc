@@ -1,0 +1,59 @@
+# MTD serial
+on init && property:ro.boot.serialno=*
+    setprop ro.vendor.oem.serialno ${ro.boot.serialno}
+
+# TEE
+service tee-supplicant /vendor/bin/tee-supplicant
+    class core
+    user system
+    group system secure_element nfc
+    capabilities SYS_RAWIO
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/odm/lib64:/system/lib64
+    seclabel u:r:recovery:s0
+    disabled
+
+# KeyMint
+service vendor.keymint-mitee /vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee
+    class early_hal
+    user system
+    group system drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/odm/lib64:/system/lib64
+    seclabel u:r:recovery:s0
+    disabled
+
+# Gatekeeper
+service vendor.gatekeeper_mitee /vendor/bin/hw/android.hardware.gatekeeper-service.mitee
+    class hal
+    user system
+    group system
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/odm/lib64:/system/lib64
+    seclabel u:r:recovery:s0
+    disabled
+
+# MTD
+service vendor.mitee.mtdservice /odm/bin/mtd_mitee
+    class hal
+    user system
+    group system keystore drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/odm/lib64:/system/lib64
+    seclabel u:r:recovery:s0
+    disabled
+
+# Secure Element
+service vendor.secure_element_hal_service /vendor/bin/hw/vendor.xiaomi.hardware.secure_element-service
+    class early_hal
+    user system
+    group system secure_element nfc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/odm/lib64:/system/lib64
+    seclabel u:r:recovery:s0
+    disabled
+
+# Weaver
+service vendor.weaver_nxp /vendor/bin/hw/android.hardware.weaver-service.nxp
+    class hal
+    user 2902
+    group system drmrpc
+    capabilities WAKE_ALARM
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/odm/lib64:/system/lib64
+    seclabel u:r:recovery:s0
+    disabled
