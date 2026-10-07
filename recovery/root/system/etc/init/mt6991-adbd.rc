@@ -1,0 +1,7 @@
+# ADB
+service adbd /system/bin/adbd --root_seclabel=u:r:recovery:s0 --device_banner=recovery
+    override
+    disabled
+    socket adbd stream 660 system system
+    seclabel u:r:adbd:s0
+    user root

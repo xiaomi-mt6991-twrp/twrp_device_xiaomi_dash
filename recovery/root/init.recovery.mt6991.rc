@@ -2,4 +2,12 @@
 # Device
 import /init.recovery.selinux.rc
 
+# ConfigFS
+on init
+    setprop sys.usb.configfs 1
+
+# ADB
+on boot
+    setprop sys.usb.config adb
+
 import /init.recovery.dash.rc

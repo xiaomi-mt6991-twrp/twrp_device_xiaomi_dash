@@ -51,6 +51,12 @@ PRODUCT_PACKAGES += \
     snapuserd.recovery \
     update_engine_sideload
 
+# USB
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.recovery.usb.vid=18D1 \
+    ro.recovery.usb.adb.pid=D001 \
+    ro.recovery.usb.fastboot.pid=4EE0
+
 # Device
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.twrp.device=dash

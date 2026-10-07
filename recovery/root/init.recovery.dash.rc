@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # Hardware
 on init
+    setprop sys.usb.controller 16701000.usb0
     # CPU low-power initialization.
     insmod /lib/modules/sspm_v3.ko
     insmod /lib/modules/mcupm.ko
