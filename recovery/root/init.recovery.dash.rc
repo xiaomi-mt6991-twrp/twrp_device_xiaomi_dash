@@ -2,6 +2,7 @@
 # Hardware
 on init
     setprop sys.usb.controller 16701000.usb0
+    setprop twrp.drm.fast_mode true
     # CPU low-power initialization.
     insmod /lib/modules/sspm_v3.ko
     insmod /lib/modules/mcupm.ko

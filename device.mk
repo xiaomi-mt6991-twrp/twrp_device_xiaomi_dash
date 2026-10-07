@@ -51,6 +51,9 @@ PRODUCT_PACKAGES += \
     snapuserd.recovery \
     update_engine_sideload
 
+# Display
+PRODUCT_PROPERTY_OVERRIDES += twrp.drm.direct_scanout=false
+
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.recovery.usb.vid=18D1 \
