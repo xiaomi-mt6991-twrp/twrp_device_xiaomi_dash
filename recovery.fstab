@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: Apache-2.0
+# Logical partitions
+system /system erofs ro wait,slotselect,logical
+system /system ext4 ro wait,slotselect,logical
+system_ext /system_ext erofs ro wait,slotselect,logical
+system_ext /system_ext ext4 ro wait,slotselect,logical
+vendor /vendor erofs ro wait,slotselect,logical
+vendor /vendor ext4 ro wait,slotselect,logical
+product /product erofs ro wait,slotselect,logical
+product /product ext4 ro wait,slotselect,logical
+odm /odm erofs ro wait,slotselect,logical
+odm /odm ext4 ro wait,slotselect,logical
+vendor_dlkm /vendor_dlkm erofs ro wait,slotselect,logical
+vendor_dlkm /vendor_dlkm ext4 ro wait,slotselect,logical
+odm_dlkm /odm_dlkm erofs ro wait,slotselect,logical
+odm_dlkm /odm_dlkm ext4 ro wait,slotselect,logical
+system_dlkm /system_dlkm erofs ro wait,slotselect,logical
+system_dlkm /system_dlkm ext4 ro wait,slotselect,logical
+mi_ext /mi_ext erofs ro wait,slotselect,logical
+mi_ext /mi_ext ext4 ro wait,slotselect,logical
+
+# Encrypted storage
+/dev/block/by-name/metadata /metadata f2fs noatime,nosuid,nodev,discard wait,check,formattable
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,gc_merge,atgc,age_extent_cache,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity
+# Persist
+/dev/block/by-name/persist /persist ext4 noatime,nosuid,nodev,noauto_da_alloc,nodelalloc,commit=1 wait,check
+# Rescue
+/dev/block/by-name/rescue /rescue ext4 noatime,nosuid,nodev,noauto_da_alloc,discard wait,check,formattable,wipeduringfactoryreset=0,display="Rescue"
+# USB storage
+/devices/platform/soc/16701000.usb0/16700000.xhci* /usbotg auto defaults wait,voldmanaged=usbotg:auto,storage,removable
+
+# Boot control
+/dev/block/by-name/misc /misc emmc defaults defaults
+# Images
+/dev/block/by-name/boot /boot emmc defaults slotselect
+/dev/block/by-name/init_boot /init_boot emmc defaults slotselect
+/dev/block/by-name/vendor_boot /vendor_boot emmc defaults slotselect
+/dev/block/by-name/dtbo /dtbo emmc defaults slotselect
+/dev/block/by-name/vbmeta /vbmeta emmc defaults slotselect
+/dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults slotselect
+/dev/block/by-name/vbmeta_vendor /vbmeta_vendor emmc defaults slotselect
