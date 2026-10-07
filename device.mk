@@ -64,3 +64,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SHIPPING_API_LEVEL := 36
 BOARD_SHIPPING_API_LEVEL := 202404
 
+# Haptics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.odm.mm.vibrator.fs_sys_path=/sys/bus/i2c/drivers/fs_haptic/1-0076 \
+    ro.odm.mm.vibrator.device_type=ff \
+    ro.odm.mm.vibrator.resonant_frequency=170

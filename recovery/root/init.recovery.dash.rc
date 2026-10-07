@@ -12,8 +12,13 @@ on init
     write /sys/module/firmware_class/parameters/path /odm/firmware
     insmod /lib/modules/xiaomi_touch_dash.ko
     insmod /lib/modules/nt38771_touch_dash.ko
+    # Haptics
+    insmod /lib/modules/fs3002_haptic.ko
+
 on boot
     start mtk.plpath.utils.link
+    # Haptics
+    start vibratorfeature-hal-service
     # Touch
     wait /dev/xiaomi-touch 10
     start mt6991-touch-report
