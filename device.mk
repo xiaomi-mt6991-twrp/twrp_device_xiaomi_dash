@@ -13,6 +13,46 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/prebuilt/pl
 # Virtual A/B
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS := \
+    apusys \
+    audio_dsp \
+    boot \
+    ccu \
+    connsys_gnss \
+    countrycode \
+    dpm \
+    dtbo \
+    gpueb \
+    gz \
+    init_boot \
+    lk \
+    logo \
+    mcf_ota \
+    mcupm \
+    modem \
+    mvpu_algo \
+    odm \
+    odm_dlkm \
+    pi_img \
+    preloader_raw \
+    product \
+    pvmfw \
+    rotfw \
+    scp \
+    spmfw \
+    sspm \
+    system \
+    system_dlkm \
+    system_ext \
+    tee \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor \
+    vcp \
+    vendor \
+    vendor_boot \
+    vendor_dlkm \
+    mi_ext
 PRODUCT_VIRTUAL_AB_OTA := true
 PRODUCT_VIRTUAL_AB_COMPRESSION := true
 PRODUCT_VENDOR_PROPERTIES += \
@@ -48,6 +88,7 @@ PRODUCT_PACKAGES += \
     fastbootd \
     hwservicemanager.recovery \
     libdl_android.recovery \
+    simg2img_dash \
     snapuserd.recovery \
     update_engine_sideload
 
