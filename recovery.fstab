@@ -34,7 +34,7 @@ mi_ext /mi_ext ext4 ro wait,slotselect,logical
 # Images
 /dev/block/by-name/boot /boot emmc defaults slotselect
 /dev/block/by-name/init_boot /init_boot emmc defaults slotselect
-/dev/block/by-name/vendor_boot /vendor_boot emmc defaults slotselect
+/dev/block/by-name/vendor_boot /vendor_boot emmc defaults slotselect,flashimg=1
 /dev/block/by-name/dtbo /dtbo emmc defaults slotselect
 /dev/block/by-name/vbmeta /vbmeta emmc defaults slotselect
 /dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults slotselect
