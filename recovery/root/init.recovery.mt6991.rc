@@ -32,9 +32,9 @@ on fs
     chown system system /dev/ufs-bsg0
     chmod 0660 /dev/p73
     chown nfc nfc /dev/p73
-    trigger mt6991-tee-start
 
-on mt6991-tee-start
+# Start after recovery has finished its vendor/odm mount cleanup.
+on property:twrp.storage.ready=1
     start tee-supplicant
     # Stock init marker; this does not assert that Binder services are ready.
     setprop vendor.teefs_state ready
