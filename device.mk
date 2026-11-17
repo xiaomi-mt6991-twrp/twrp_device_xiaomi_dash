@@ -101,9 +101,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.recovery.usb.adb.pid=D001 \
     ro.recovery.usb.fastboot.pid=4EE0
 
-# Device
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.twrp.device=dash
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 36
 BOARD_SHIPPING_API_LEVEL := 202404
