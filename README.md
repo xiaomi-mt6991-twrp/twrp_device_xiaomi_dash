@@ -1,21 +1,26 @@
 # TWRP device tree for Xiaomi dash
 
-TWRP for Redmi Turbo 5 Max. <ins><em><strong>Maybe</strong></em></ins> works on Poco too.
+TWRP device tree for Redmi Turbo 5 Max. <ins><em><strong>Maybe</strong></em></ins> works on Poco too.
 
 <ins><em><strong>Maybe</strong></em></ins> compatible. Compatibility is NOT guaranteed. No LOGS, NO BUGS.
 
-btw, blobs are extracted from `OS3.0.305.WPLCNXM`, so... Flash at your own risk.
+The DTB, platform ramdisk, and device-specific recovery blobs use `OS4.0.4.0.XPLCNXM` as their baseline. Recovery retains its existing Binder runtime. Flash at your own risk.
 
 ## Working
 
 - [x] ADB
-- [x] Decryption
+- [x] ADB sideload
+- [x] Backup / Restore
+- [x] Decryption / Multi-user decryption tested on [LineageOS 24.0](https://github.com/YorokobiMaster/android_device_xiaomi_dash)
+- [x] Fake-lock `lk` support
 - [x] Fastbootd
 - [x] Flashing
 - [x] Haptics
 - [x] MTP
+- [x] Screenshot
 - [x] Touch
 - [x] USB-OTG
+- [x] Virtual A/B OTA & snapshot merge tested on [Paranoid Android](https://github.com/Content-Creation-Club/AOSPA_device_xiaomi_dash)
 
 ## How to build
 

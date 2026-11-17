@@ -249,6 +249,7 @@ mi_t1_gpio.ko
 zsmalloc.ko
 zram.ko
 perf_helper.ko
+mi_wq_dynamic_priority.ko
 mi_stack.ko
 mi_ubt.ko
 mi_ubt_test.ko
@@ -260,3 +261,4 @@ block2mtd.ko
 chipreg.ko
 mtdblock.ko
 mtd.ko
+dynamic_readahead.ko

@@ -229,6 +229,8 @@ nxp_i2c.ko
 p73.ko
 zsmalloc.ko
 zram.ko
+node_cache.ko
+mi_wq_dynamic_priority.ko
 mi_stack.ko
 mi_ubt.ko
 mi_ubt_test.ko
@@ -241,3 +243,4 @@ chipreg.ko
 mtdblock.ko
 mtd.ko
 crash_module.ko
+dynamic_readahead.ko

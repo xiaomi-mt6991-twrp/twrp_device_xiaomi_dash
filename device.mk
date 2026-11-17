@@ -8,6 +8,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Stock platform ramdisk
+# Preserve the mtu3.ko recovery OTG patch: ssusb_set_mode() skips the
+# USB host offload readiness wait when the offload driver is absent.
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/prebuilt/platform,$(TARGET_COPY_OUT_VENDOR_RAMDISK))
 
 # Virtual A/B
@@ -52,7 +54,8 @@ AB_OTA_PARTITIONS := \
     vendor \
     vendor_boot \
     vendor_dlkm \
-    mi_ext
+    mi_ext \
+    mi_product
 PRODUCT_VIRTUAL_AB_OTA := true
 PRODUCT_VIRTUAL_AB_COMPRESSION := true
 PRODUCT_VENDOR_PROPERTIES += \
